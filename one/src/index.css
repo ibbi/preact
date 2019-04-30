@@ -21,11 +21,18 @@ code {
 		monospace;
 }
 
-#root,
-.App {
+#root {
+	padding-top: 70px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	width: 100%;
+	justify-content: space-around;
+	height: 90%;
+}
+
+.itemsCont {
+	display: flex;
+	flex-direction: column;
 }
 
 h1 {
@@ -33,10 +40,15 @@ h1 {
 	text-align: center;
 	font-size: 50px;
 	font-weight: 100;
-	color: #1a8686;
+	color: #159797;
+	margin: 0;
 }
 
 .done {
 	color: #2e4357;
 	text-decoration: line-through;
+}
+
+button {
+	fill: none;
 }

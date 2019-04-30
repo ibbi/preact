@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import AddButton from './AddButton';
 
 function App() {
 	const toDos = [
@@ -11,11 +12,14 @@ function App() {
 		'train',
 	];
 	return (
-		<div className='App'>
-			{toDos.map((i, j) => (
-				<Item key={j}>{i}</Item>
-			))}
-		</div>
+		<>
+			<div className='itemsCont'>
+				{toDos.map((i, j) => (
+					<Item key={j}>{i}</Item>
+				))}
+			</div>
+			<AddButton>new item</AddButton>
+		</>
 	);
 }
 
