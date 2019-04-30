@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class AddButton extends Component {
 	render() {
-		return <button>{this.props.children}</button>;
+		return <button onClick={this.props.handler}>{this.props.children}</button>;
 	}
 }
 

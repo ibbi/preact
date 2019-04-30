@@ -5,7 +5,10 @@ export class Item extends Component {
 	toggleClass = () => this.setState({ done: !this.state.done });
 	render() {
 		return (
-			<h1 className={this.state.done && 'done'} onClick={this.toggleClass}>
+			<h1
+				className={this.state.done ? 'done' : undefined}
+				onClick={this.toggleClass}
+			>
 				{this.props.children}
 			</h1>
 		);

@@ -27,6 +27,7 @@ code {
 	flex-direction: column;
 	width: 100%;
 	justify-content: space-around;
+	align-items: center;
 	height: 90%;
 }
 
@@ -50,5 +51,30 @@ h1 {
 }
 
 button {
-	fill: none;
+	border: 1px solid #159797;
+	border-radius: 25px;
+	color: #159797;
+	font-size: 50px;
+	width: 40%;
+	max-width: 300px;
+	font-weight: 100;
+	background: none;
+	cursor: pointer;
+	line-height: 80px;
+	margin: 15px 30px;
+	outline: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button:after {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+button:hover,
+button:active {
+	color: #123456;
+	background: #159797;
 }
