@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Display = () => {
-	return <div>{this.props.input}</div>;
+const Display = (props) => {
+	return <div>{props.children}</div>;
 };
 
 export default Display;
