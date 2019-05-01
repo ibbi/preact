@@ -23,7 +23,7 @@ export class Calculator extends Component {
 		}
 	};
 	number = (num) => {
-		this.setState({ input: this.state.input + num });
+		this.setState({ input: this.state.input.toString() + num });
 	};
 
 	render() {
@@ -33,15 +33,13 @@ export class Calculator extends Component {
 				{buttons.map((i, j) => {
 					return (
 						<Button
-							key={i.symbol}
+							key={i}
 							className={j ? 'button' : 'C'}
 							handler={
-								isNaN(i.symbol)
-									? () => this.operation(i.symbol)
-									: () => this.number(i.symbol)
+								isNaN(i) ? () => this.operation(i) : () => this.number(i)
 							}
 						>
-							{i.symbol}
+							{i}
 						</Button>
 					);
 				})}
