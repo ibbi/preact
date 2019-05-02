@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import Score from './Score';
+import { Equality, colors } from './Helpers';
 
 export class Game extends Component {
 	state = {
@@ -8,32 +9,34 @@ export class Game extends Component {
 		enteredSequence: [],
 		gameOver: false,
 	};
-    colors = ['green', 'yellow', 'blue', 'red'];
-    
+
 	componentDidMount() {
-		let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
+		let rand = colors[Math.floor(Math.random() * colors.length)];
 		this.setState({ sequence: [...this.state.sequence, rand] });
-    };
-    
-	arrayEquality = (a1, a2) => {
-		return JSON.stringify(a1) == JSON.stringify(a2);
-    };
-    
+	}
+	componentDidUpdate() {
+		console.log(this.state.sequence);
+	}
+
 	pressed = (color) => {
-        this.setState({
-            enteredSequence: [...this.state.enteredSequence, color],
-        });
-		if (this.state.sequence.length === this.state.enteredSequence.length) {
-			if (this.arrayEquality(this.state.enteredSequence, this.state.sequence)) {
-				let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
-				this.setState({
-					enteredSequence: [],
-					sequence: [...this.state.sequence, rand],
-				});
-			} else {
-				this.setState({ gameOver: true });
+		this.setState(
+			{
+				enteredSequence: [...this.state.enteredSequence, color],
+			},
+			() => {
+				if (Equality(this.state.enteredSequence, this.state.sequence)) {
+					let rand = colors[Math.floor(Math.random() * colors.length)];
+					this.setState({
+						enteredSequence: [],
+						sequence: [...this.state.sequence, rand],
+					});
+				} else if (
+					this.state.enteredSequence.length === this.state.sequence.length
+				) {
+					this.setState({ gameOver: true });
+				}
 			}
-		} 
+		);
 	};
 
 	render() {
@@ -42,7 +45,7 @@ export class Game extends Component {
 		) : (
 			<>
 				<div className='buttonCont'>
-					{this.colors.map((i, j) => (
+					{colors.map((i, j) => (
 						<Button key={j} handler={() => this.pressed(i)} className={i} />
 					))}
 				</div>
