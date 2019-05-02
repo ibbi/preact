@@ -21,23 +21,25 @@ code {
 	height: 80%;
 	width: 100%;
 }
-.green,
-.red,
-.yellow,
-.blue {
+.box {
 	height: 50%;
 	width: 50%;
 	cursor: pointer;
 }
-.green {
+#green {
 	background-color: green;
 }
-.yellow {
+#yellow {
 	background-color: yellow;
 }
-.blue {
+#blue {
 	background-color: blue;
 }
-.red {
+#red {
 	background-color: red;
+}
+.bordered {
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 10px;
 }
