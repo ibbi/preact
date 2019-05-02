@@ -13,7 +13,14 @@ export class Game extends Component {
 
 	componentDidMount() {
 		let rand = colors[Math.floor(Math.random() * colors.length)];
-		this.setState({ sequence: [...this.state.sequence, rand] });
+		this.setState({ sequence: [...this.state.sequence, rand] }, (rand) => {
+			document.getElementById(this.state.sequence[0]).classList.add('bordered');
+			setTimeout(() => {
+				document
+					.getElementById(this.state.sequence[0])
+					.classList.remove('bordered');
+			}, 500);
+		});
 	}
 
 	componentDidUpdate() {
@@ -35,7 +42,12 @@ export class Game extends Component {
 						},
 						() => {
 							this.state.sequence.forEach((i, j) => {
-								document.getElementById(i).classList.add('bordered');
+								setTimeout(() => {
+									document.getElementById(i).classList.add('bordered');
+									setTimeout(() => {
+										document.getElementById(i).classList.remove('bordered');
+									}, j * 500);
+								}, j * 500);
 							});
 						}
 					);
