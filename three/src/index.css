@@ -17,7 +17,8 @@ code {
 }
 .buttonCont {
 	display: flex;
-	height: 100%;
+	flex-wrap: wrap;
+	height: 80%;
 	width: 100%;
 }
 .green,
@@ -26,6 +27,7 @@ code {
 .blue {
 	height: 50%;
 	width: 50%;
+	cursor: pointer;
 }
 .green {
 	background-color: green;
