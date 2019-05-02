@@ -14,13 +14,20 @@ export class Game extends Component {
 	}
 	colors = ['green', 'yellow', 'blue', 'red'];
 	pressed = (color) => {
-		this.setState({ enteredSequence: [...this.state.enteredSequence, color] });
-		let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
-		this.setState({ sequence: [...this.state.sequence, rand] });
+		if (color === this.state.sequence[this.state.sequence.length - 1]) {
+			this.setState({
+				enteredSequence: [...this.state.enteredSequence, color],
+			});
+
+			let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
+			this.setState({ sequence: [...this.state.sequence, rand] });
+		} else {
+			this.setState({ gameOver: true });
+		}
 	};
 	render() {
 		return this.state.gameOver ? (
-			<h1>Game Over</h1>
+			<h1>Game Over, score: {this.state.enteredSequence.length}</h1>
 		) : (
 			<>
 				<div className='buttonCont'>
