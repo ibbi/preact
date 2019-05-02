@@ -12,15 +12,17 @@ export class Game extends Component {
 		let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
 		this.setState({ sequence: [...this.state.sequence, rand] });
 	}
+	componentDidUpdate() {
+        
+    }
 	colors = ['green', 'yellow', 'blue', 'red'];
 	pressed = (color) => {
 		if (color === this.state.sequence[this.state.sequence.length - 1]) {
+			let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
 			this.setState({
 				enteredSequence: [...this.state.enteredSequence, color],
+				sequence: [...this.state.sequence, rand],
 			});
-
-			let rand = this.colors[Math.floor(Math.random() * this.colors.length)];
-			this.setState({ sequence: [...this.state.sequence, rand] });
 		} else {
 			this.setState({ gameOver: true });
 		}
