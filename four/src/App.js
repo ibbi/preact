@@ -9,14 +9,25 @@ class App extends React.Component {
 			secondary: '#ffffff',
 			tertiary: '#ffffff',
 		},
+		tempColors: {
+			primary: '',
+			secondary: '',
+			tertiary: '',
+		},
 		persist: true,
 	};
 	keyHandler = (ev, el) => {
-		this.setState({ colors: { ...this.state.colors, [el]: ev.target.value } });
+		this.setState({
+			tempColors: { ...this.state.tempColors, [el]: ev.target.value },
+		});
 	};
 	isValidColor = (hex) => /^#[0-9A-F]{6}$/i.test(hex);
 	handleSubmit = () => {
-		console.log(Object.values(this.state.colors).every(this.isValidColor));
+		if (Object.values(this.state.tempColors).every(this.isValidColor)) {
+			this.setState({ colors: { ...this.state.tempColors } });
+		} else {
+			alert('incorrect format');
+		}
 	};
 	render() {
 		return (
