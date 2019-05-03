@@ -5,9 +5,9 @@ import Page from './Page';
 class App extends React.Component {
 	state = {
 		colors: {
-			primary: '#ffffff',
-			secondary: '#ffffff',
-			tertiary: '#ffffff',
+			primary: '#ffafff',
+			secondary: '#ffffaf',
+			tertiary: '#afffff',
 		},
 		tempColors: {
 			primary: '',

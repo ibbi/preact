@@ -4,15 +4,15 @@ const Page = (props) => {
 	return (
 		<div
 			style={{
-				backgroundColor: '',
+				backgroundColor: props.colors.primary,
 			}}
 		>
 			<h1
 				style={{
-					backgroundColor: '',
+					backgroundColor: props.colors.secondary,
 					borderStyle: 'dashed',
-					borderColor: '#294726',
-					color: '#294726',
+					borderColor: props.colors.tertiary,
+					color: props.colors.tertiary,
 				}}
 			>
 				Trenboloney
