@@ -36,7 +36,7 @@ class App extends React.Component {
 					handleSubmit={this.handleSubmit}
 					handler={(ev, el) => this.keyHandler(ev, el)}
 				/>
-				<Page />
+				<Page colors={this.state.colors} />
 			</>
 		);
 	}
