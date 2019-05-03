@@ -29,7 +29,7 @@ const Form = (props) => {
 			</label>
 			<label>
 				persist
-				<input type='checkbox' />
+				<input type='checkbox' onChange={props.persist} />
 			</label>
 
 			<button onClick={props.handleSubmit}>Submit</button>
