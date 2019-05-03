@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = (props) => {
 	return (
-		<form onSubmit={props.handleSubmit}>
+		<>
 			<label>
 				primary
 				<input
@@ -32,8 +32,8 @@ const Form = (props) => {
 				<input type='checkbox' />
 			</label>
 
-			<input type='submit' value='Submit' />
-		</form>
+			<button onClick={props.handleSubmit}>Submit</button>
+		</>
 	);
 };
 

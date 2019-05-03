@@ -16,7 +16,7 @@ class App extends React.Component {
 	};
 	isValidColor = (hex) => /^#[0-9A-F]{6}$/i.test(hex);
 	handleSubmit = () => {
-		console.log(Object.values(this.state.colors));
+		console.log(Object.values(this.state.colors).every(this.isValidColor));
 	};
 	render() {
 		return (
