@@ -28,4 +28,5 @@ h3 {
 .postCont {
 	display: flex;
 	flex-direction: column;
+	background-color: #ddd;
 }
