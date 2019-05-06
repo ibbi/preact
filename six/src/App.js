@@ -15,8 +15,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<>
-				{colors.map((i) => (
-					<Infinity color={i} />
+				{colors.map(() => (
+					<Infinity colors={this.state.colors} />
 				))}
 			</>
 		);
