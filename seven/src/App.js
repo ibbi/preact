@@ -1,5 +1,4 @@
 import React from 'react';
-import Infinity from './Infinity';
 import { nouns, startups, getRand } from './helpers';
 
 class App extends React.Component {
@@ -8,13 +7,15 @@ class App extends React.Component {
 		noun: '',
 	};
 	componentDidMount() {
-		this.setState({ startup: getRand(startups), noun: getRand(nouns) });
+		this.randomize();
 	}
-
+	randomize = () => {
+		this.setState({ startup: getRand(startups), noun: getRand(nouns) });
+	};
 	render() {
 		return (
-			<div className= 'parent'>
-			<h1>$</h1>
+			<div className='parent' onClick={this.randomize}>
+				<h1>{`${this.state.startup} for ${this.state.noun}s`}</h1>
 			</div>
 		);
 	}
