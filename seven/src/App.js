@@ -7,6 +7,7 @@ class App extends React.Component {
 		noun: '',
 	};
 	componentDidMount() {
+		window.addEventListener('keyup', this.randomize);
 		this.randomize();
 	}
 	randomize = () => {
@@ -14,7 +15,11 @@ class App extends React.Component {
 	};
 	render() {
 		return (
-			<div className='parent' onClick={this.randomize}>
+			<div
+				className='parent'
+				onClick={this.randomize}
+				onKeyDown={this.randomize}
+			>
 				<h1>{`${this.state.startup} for ${this.state.noun}s`}</h1>
 			</div>
 		);
