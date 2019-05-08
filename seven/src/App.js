@@ -1,24 +1,21 @@
 import React from 'react';
 import Infinity from './Infinity';
-import { colors, shuffle } from './helpers';
+import { nouns, startups, getRand } from './helpers';
 
 class App extends React.Component {
 	state = {
-		colors,
+		startup: '',
+		noun: '',
 	};
 	componentDidMount() {
-		setInterval(() => {
-			this.setState({ colors: shuffle(this.state.colors) });
-		}, 10);
+		this.setState({ startup: getRand(startups), noun: getRand(nouns) });
 	}
 
 	render() {
 		return (
-			<>
-				{colors.map(() => (
-					<Infinity colors={this.state.colors} />
-				))}
-			</>
+			<div className= 'parent'>
+			<h1>$</h1>
+			</div>
 		);
 	}
 }
