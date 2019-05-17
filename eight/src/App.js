@@ -27,7 +27,8 @@ class App extends React.Component {
 	}
 	handler = (j) => {
 		let input = window.prompt('what');
-		this.setState(...this.state, this.state.cards[j]['items'].push(input));
+		let joined = this.state.cards[j]['items'].concat(input);
+		this.setState({this.state.cards[j]['items']joined});
 	};
 	render() {
 		return (
