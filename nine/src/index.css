@@ -11,3 +11,42 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+body {
+	height: 100vh;
+	width: 100vw;
+	background-color: #eceeee;
+}
+#root {
+	display: flex;
+	justify-content: space-around;
+	padding: 12.5px;
+}
+.Card {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	margin: 0 12.5px;
+}
+.headContainer {
+	width: 100%;
+	height: 100%;
+}
+.itemCont {
+	display: flex;
+}
+.cardItem {
+	background-color: white;
+	flex: 1;
+}
+#Winnie {
+	background-color: #8e6e95;
+}
+#Bob {
+	background-color: #39a59c;
+}
+#Thomas {
+	background-color: #344759;
+}
+#George {
+	background-color: #e8741e;
+}
