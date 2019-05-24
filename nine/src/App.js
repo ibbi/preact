@@ -8,18 +8,23 @@ class App extends React.Component {
 		Thomas: ['1', '2'],
 		George: ['1', '2'],
 	};
-	addHandler = (i) => {
+	addHandler = (board) => {
 		let toBeAdded = window.prompt('add an item');
 		if (toBeAdded) {
-			let joined = this.state[i].concat(toBeAdded);
-			this.setState({ [i]: joined });
+			let added = this.state[board].concat(toBeAdded);
+			this.setState({ [board]: added });
 		}
 	};
-	// moveHandler = (i, j) => {
-	// 	if (j <= 3) {
-	// 		this.state[i]
-	// 	}
-	// }
+	moveHandler = (isLeft, boardIndex, itemIndex) => {
+		let difference = isLeft ? -1 : 1;
+		let addItemBoard = Object.keys(this.state)[boardIndex + difference];
+		let removeItemBoard = Object.keys(this.state)[boardIndex];
+		let added = this.state[addItemBoard].concat(
+			this.state[removeItemBoard][itemIndex]
+		);
+		let removed = this.state[removeItemBoard].slice(itemIndex, 1);
+		this.setState({ [removeItemBoard]: removed, [addItemBoard]: added });
+	};
 	render() {
 		return (
 			<>
@@ -27,7 +32,9 @@ class App extends React.Component {
 					<Card
 						key={j}
 						addHandler={() => this.addHandler(i)}
-						moveHandler={() => this.moveHandler(i, j)}
+						moveHandler={(isLeft, itemIndex) =>
+							this.moveHandler(isLeft, j, itemIndex)
+						}
 						header={i}
 						items={this.state[i]}
 					/>
