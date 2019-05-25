@@ -2,14 +2,18 @@ import React from 'react';
 import Card from './Card';
 
 class App extends React.Component {
-	state = {
-		Winnie: ['1', '2'],
-		Bob: ['1', '2'],
-		Thomas: ['1', '2'],
-		Jerry: ['1', '2'],
-	};
+	state = localStorage.getItem('boards')
+		? JSON.parse(localStorage.getItem('boards'))
+		: {
+				Winnie: ['1', '2'],
+				Bob: ['1', '2'],
+				Thomas: ['1', '2'],
+				Jerry: ['1', '2'],
+		  };
+	componentDidUpdate() {
+		localStorage.setItem('boards', JSON.stringify(this.state));
+	}
 	boardKeys = Object.keys(this.state);
-
 	addHandler = (boardName) => {
 		let toBeAdded = window.prompt('Add what?');
 		let joinedArray = this.state[boardName].concat(toBeAdded);
@@ -18,7 +22,6 @@ class App extends React.Component {
 		}
 	};
 	moveHandler = (boardIndex, isLeft, itemIndex) => {
-		console.log(boardIndex, isLeft, itemIndex);
 		let addItemBoard = null;
 		if (isLeft) {
 			addItemBoard = this.boardKeys[boardIndex - 1];
@@ -31,7 +34,6 @@ class App extends React.Component {
 		);
 		let removedBoard = [...this.state[removeItemBoard]];
 		removedBoard.splice(itemIndex, 1);
-		console.log(removedBoard, addedBoard);
 		this.setState({
 			[addItemBoard]: addedBoard,
 			[removeItemBoard]: removedBoard,
