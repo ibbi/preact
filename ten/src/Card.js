@@ -14,6 +14,7 @@ const Card = (props) => {
 					numOfBoards={props.numOfBoards}
 					itemIndex={j}
 					itemText={i}
+					key={j}
 				/>
 			))}
 			<AddButton addHandler={props.addHandler} />
