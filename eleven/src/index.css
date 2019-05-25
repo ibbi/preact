@@ -51,3 +51,7 @@ html {
 #hunky {
 	background-color: #afa;
 }
+.button {
+	color: #555;
+	cursor: pointer;
+}

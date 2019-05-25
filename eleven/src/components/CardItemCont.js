@@ -8,7 +8,7 @@ const CardItemCont = (props) => {
 				<MoveButton
 					moveHandler={props.moveHandler}
 					itemIndex={props.itemIndex}
-					isLeft={true}
+					isLeft
 				/>
 			) : null}
 

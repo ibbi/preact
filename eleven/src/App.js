@@ -2,18 +2,24 @@ import React from 'react';
 import Card from './components/Card';
 
 class App extends React.Component {
-	state = localStorage.getItem('boardsa')
-		? JSON.parse(localStorage.getItem('boardsa'))
-		: {
-				Winnie: ['1', '2'],
-				bob: ['1', '2'],
-				tom: ['1', '2'],
-				hunky: ['1', '2'],
-		  };
-	componentDidUpdate() {
-		localStorage.setItem('boardsa', JSON.stringify(this.state));
+	state = {
+		Winnie: ['1', '2'],
+		bob: ['1', '2'],
+		tom: ['1', '2'],
+		hunky: ['1', '2'],
+	};
+	componentDidMount() {
+		localStorage.getItem('boardsa')
+			? this.setState(JSON.parse(localStorage.getItem('boardsa')))
+			: this.saveToLocal();
 	}
+	componentDidUpdate() {
+		this.saveToLocal();
+	}
+
 	boardNameArray = Object.keys(this.state);
+	saveToLocal = () =>
+		localStorage.setItem('boardsa', JSON.stringify(this.state));
 	addHandler = (boardName) => {
 		let toBeAdded = window.prompt('add what?');
 		if (toBeAdded) {
@@ -21,10 +27,8 @@ class App extends React.Component {
 			this.setState({ [boardName]: joined });
 		}
 	};
-	moveHandler = (boardIndex, isLeft, itemIndex) => {
-		let boardToBeAppended = null;
-		let appendedBoardName = null;
-		let shortenedBoardName = this.boardNameArray[boardIndex];
+	moveHandler = (boardIndex, isLeft, itemIndex, boardName) => {
+		let boardToBeAppended, appendedBoardName;
 		if (isLeft) {
 			appendedBoardName = this.boardNameArray[boardIndex - 1];
 			boardToBeAppended = this.state[this.boardNameArray[boardIndex - 1]];
@@ -32,12 +36,12 @@ class App extends React.Component {
 			appendedBoardName = this.boardNameArray[boardIndex + 1];
 			boardToBeAppended = this.state[this.boardNameArray[boardIndex + 1]];
 		}
-		let boardToBeShortened = [...this.state[this.boardNameArray[boardIndex]]];
+		let boardToBeShortened = [...this.state[boardName]];
 		let appendedBoard = boardToBeAppended.concat(boardToBeShortened[itemIndex]);
 		boardToBeShortened.splice(itemIndex, 1);
 		this.setState({
 			[appendedBoardName]: appendedBoard,
-			[shortenedBoardName]: boardToBeShortened,
+			[boardName]: boardToBeShortened,
 		});
 	};
 	render() {
@@ -52,7 +56,7 @@ class App extends React.Component {
 						boardIndex={boardIndex}
 						numOfBoards={this.boardNameArray.length}
 						moveHandler={(isLeft, itemIndex) =>
-							this.moveHandler(boardIndex, isLeft, itemIndex)
+							this.moveHandler(boardIndex, isLeft, itemIndex, boardName)
 						}
 					/>
 				))}
