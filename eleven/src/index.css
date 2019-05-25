@@ -1,13 +1,53 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+html {
+	background-color: #ddd;
+}
+#root {
+	display: flex;
+	justify-content: space-around;
+	padding: 12.5px;
+}
+.cardCont {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin: 12.5px;
+}
+.cardContInner {
+	background-color: white;
+}
+.itemCont {
+	display: flex;
+	justify-content: space-between;
+	border-top: solid;
+	border-color: #ddd;
+	border-width: 1px;
+}
+.headerCont {
+	display: flex;
+	flex: 1;
+}
+#Winnie {
+	background-color: #afa;
+}
+#bob {
+	background-color: #faa;
+}
+#tom {
+	background-color: #aaf;
+}
+#hunky {
+	background-color: #afa;
 }
