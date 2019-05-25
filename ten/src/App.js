@@ -29,7 +29,8 @@ class App extends React.Component {
 		let addedBoard = this.state[addItemBoard].concat(
 			this.state[removeItemBoard][itemIndex]
 		);
-		let removedBoard = [...this.state[removeItemBoard]].splice(itemIndex, 1);
+		let removedBoard = [...this.state[removeItemBoard]];
+		removedBoard.splice(itemIndex, 1);
 		console.log(removedBoard, addedBoard);
 		this.setState({
 			[addItemBoard]: addedBoard,
