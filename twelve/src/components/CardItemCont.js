@@ -11,7 +11,7 @@ const CardItemCont = (props) => {
 					isLeft={true}
 				/>
 			) : null}
-			{props.itemText}
+			<p className='itemText'>{props.itemText}</p>
 			{props.boardIndex < props.numOfBoards - 1 ? (
 				<MoveButton
 					moveHandler={props.moveHandler}

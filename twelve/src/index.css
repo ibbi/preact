@@ -34,8 +34,13 @@ h3 {
 .moveButton {
 	font-size: 18px;
 	color: #444;
+	cursor: pointer;
+}
+.itemText {
+	margin: auto;
 }
 .addButton {
+	cursor: pointer;
 	font-size: 14px;
 	color: #444;
 }
@@ -46,7 +51,7 @@ h3 {
 .itemCont {
 	display: flex;
 	justify-content: space-between;
-	padding: 14px 0;
+	padding: 14px 7px;
 	border-bottom: solid;
 	border-color: #eceeee;
 	background-color: white;
