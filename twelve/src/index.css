@@ -44,6 +44,14 @@ h3 {
 	font-size: 14px;
 	color: #444;
 }
+.unSelectable {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
 .headerCont {
 	display: flex;
 	height: 30px;

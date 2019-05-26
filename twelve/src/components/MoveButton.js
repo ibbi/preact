@@ -4,7 +4,7 @@ const MoveButton = (props) => {
 	return (
 		<div
 			onClick={() => props.moveHandler(props.itemIndex, props.isLeft)}
-			className='moveButton'
+			className='moveButton unSelectable'
 		>
 			{props.isLeft ? '<' : '>'}
 		</div>
